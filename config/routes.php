@@ -2,8 +2,8 @@
 /* Маршруты которые обрабатывает Router */
 return array(
 
-    'city/([0-9]+)' => 'site/city/$1',
-    'all-competitions' => 'site/allCompetitions',
+    'competition/([0-9]+)' => 'site/aboutCompetition/$1',
+    '' => 'site/index',
 
     /*'search' => 'films/search',
     'about' => 'site/about',

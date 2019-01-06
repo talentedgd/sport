@@ -1,13 +1,20 @@
 <?php
 
-require_once ROOT . '/models/SportCompetition.php';
+require_once ROOT . '\models\SportCompetition.php';
 
 class SiteController
 {
-    public function actionAllCompetitions()
+    public function actionIndex()
     {
         $sc = new SportCompetition();
-        $result = $sc->selectAll();
-        print_r($result);
+        $competitions = $sc->selectAll();
+        require_once ROOT . '\view\site\index.php';
+    }
+
+    public function actionAboutCompetition($id)
+    {
+        $sc = new SportCompetition();
+        $competition = $sc->selectOne($id);
+        require_once ROOT . '\view\site\about.php';
     }
 }
