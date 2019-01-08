@@ -40,39 +40,32 @@
                     </div>
 
                     <!-- select sport -->
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Вид спорта</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <?php foreach ($kindsOfSport as $kindOfSport): ?>
-                                    <option value="<?= $kindOfSport['id']; ?>"><?= $kindOfSport['name']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Вид спорта</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <?php foreach ($kindsOfSport as $kindOfSport): ?>
+                                <option value="<?= $kindOfSport['id']; ?>"><?= $kindOfSport['name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
 
                     <hr>
                     <h5>Место проведения</h5>
 
+                    <!-- select cities -->
                     <div class="form-group">
-                        <label for="locationName">Название места проведения</label>
-                        <input name="locationName" type="text" class="form-control" id="locationName"
-                               aria-describedby="emailHelp"
-                               placeholder="Введите название места проведения...">
+                        <label for="competitionCities">Город</label>
+                        <select name="competitionCities" class="form-control" id="competitionCities">
+                            <?php foreach ($cities as $city): ?>
+                                <option value="<?= $city['id']; ?>"><?= $city['name']; ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
-
                     <div class="form-group">
-                        <label for="locationAddress">Адресс</label>
-                        <input name="locationAddress" type="text" class="form-control" id="locationAddress"
-                               aria-describedby="emailHelp"
-                               placeholder="Введите Адресс...">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="locationDescription">Описание</label>
-                        <textarea placeholder="Введите описание..." name="locationDescription" class="form-control"
-                                  id="locationDescription"
-                                  rows="3"></textarea>
+                        <label for="competitionLocations">Город</label>
+                        <select name="competitionLocations" class="form-control" id="competitionLocations">
+                                <option value="1">shit</option>
+                        </select>
                     </div>
 
                 </div>

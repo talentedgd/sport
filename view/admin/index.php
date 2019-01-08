@@ -1,6 +1,5 @@
 <?php require_once ROOT . '\view\layouts\header.php'; ?>
-
-    <div class="row justify-content-center mt-2">
+    <div class="row justify-content-center mt-2 mr-0">
         <div class="card" style="width: 90%; background-color: ghostwhite">
             <div class="card-body" style="text-align: center">
                 <div class="row justify-content-center">
@@ -43,7 +42,7 @@
 
 <?php foreach ($competitions as $competition): ?>
 
-    <div class="row justify-content-center mt-2">
+    <div class="row justify-content-center mt-2 mr-0">
         <div class="card" style="width: 90%; background-color: ghostwhite">
             <div class="card-body">
                 <h4 class="card-title"><?= $competition['name']; ?></h4>

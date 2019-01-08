@@ -7,7 +7,7 @@ require_once ROOT . '\models\City.php';
 
 class CompetitionController
 {
-    /*public function actionIndex()
+    public function actionIndex()
     {
         if (isset($_SESSION['admin_id'])) {
             $sc = new SportCompetition();
@@ -16,11 +16,14 @@ class CompetitionController
             $s = new KindOfSport();
             $kindsOfSport = $s->selectAll();
 
-            require_once ROOT . '\view\site\index.php';
+            $c = new City();
+            $cities = $c->selectAll();
+
+            require_once ROOT . '\view\admin\index.php';
         } else {
-            header('Location: http://sport/login');
+            require_once ROOT . '\view\admin\login.php';
         }
-    }*/
+    }
 
     public function actionAboutCompetition($id)
     {
@@ -87,5 +90,13 @@ class CompetitionController
             $_SESSION['essenceError'] = 'Ошибка добавления';
         }
         header('Location: http://sport/admin');
+    }
+
+    public function actionCityLocations()
+    {
+        $id = (int) strip_tags(trim($_POST['id']));
+        $location = new Location();
+        $locationList = $location->getLocationByCityId($id);
+        echo $locationList;
     }
 }
