@@ -9,7 +9,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form method="post" action="/add-sport">
+            <form method="post" action="/add-competition">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="competitionName">Название спортивного соревнования</label>

@@ -71,4 +71,21 @@ class CompetitionController
         }
         header('Location: http://sport/admin');
     }
+
+    public function actionAddLocation()
+    {
+        $params = array();
+        $params['name'] = strip_tags(trim($_POST['locationName']));
+        $params['address'] = strip_tags(trim($_POST['locationAddress']));
+        $params['description'] = strip_tags(trim($_POST['locationDescription']));
+        $params['city_id'] = strip_tags(trim($_POST['locationCities']));
+
+        $location = new Location();
+        if ($location->insertItem($params)) {
+            $_SESSION['essenceSuccess'] = 'Местоположение успешно добавлено';
+        } else {
+            $_SESSION['essenceError'] = 'Ошибка добавления';
+        }
+        header('Location: http://sport/admin');
+    }
 }

@@ -5,6 +5,7 @@ return array(
     /* Add essence */
     'add-city' => 'competition/addCity',
     'add-sport' => 'competition/addKindOfSport',
+    'add-location' => 'competition/addLocation',
 
     /*------------admin---------------*/
 

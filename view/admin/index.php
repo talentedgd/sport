@@ -28,6 +28,10 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addSport">
                     Добавить вид спрота
                 </button>
+                <!-- Add king of sport -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLocation">
+                    Добавить место проведения
+                </button>
                 <!-- Add city -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCity">
                     Добавить город
@@ -53,4 +57,5 @@
 <?php require_once ROOT . '\view\layouts\modals\competition.php'; ?>
 <?php require_once ROOT . '\view\layouts\modals\sport.php'; ?>
 <?php require_once ROOT . '\view\layouts\modals\city.php'; ?>
+<?php require_once ROOT . '\view\layouts\modals\location.php'; ?>
 <?php require_once ROOT . '\view\layouts\footer.php';
