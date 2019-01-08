@@ -2,6 +2,20 @@
 /* Маршруты которые обрабатывает Router */
 return array(
 
+    /* Add essence */
+    'add-city' => 'competition/addCity',
+    'add-sport' => 'competition/addKindOfSport',
+
+    /*------------admin---------------*/
+
+    'admin/competition/([0-9]+)' => 'competition/aboutCompetition/$1',
+    'admin' => 'admin/index',
+    'login' => 'admin/login',
+    'logout' => 'admin/logout',
+
+    /*------------user---------------*/
+
+    'sport/([0-9]+)' => 'site/aboutKindOfSport/$1',
     'competition/([0-9]+)' => 'site/aboutCompetition/$1',
     '' => 'site/index',
 

@@ -82,11 +82,10 @@ class DaoFactory implements MyDaoInterface
 
         $query = $connection->prepare($sql);
         $i = 0;
-        foreach ($item as $value) {
-            $query->bindParam("$valuesAr[$i]", $value);
+        foreach ($item as $key => $value) {
+            $query->bindParam($valuesAr[$i], $item[$key]);
             $i++;
         }
-
         if ($query->execute()) {
             return true;
         }

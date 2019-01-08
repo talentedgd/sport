@@ -3,6 +3,6 @@
 return array(
     'host' => 'localhost',
     'dbname' => 'sportdb',
-    'user' => 'root',
+    'Admin' => 'root',
     'password' => '',
 );
