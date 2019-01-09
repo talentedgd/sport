@@ -18,13 +18,11 @@ class DaoFactory implements MyDaoInterface
         }
 
         $query->bindParam(':id', $id);
-        $query->execute();
 
-        if ($query->affected_rows > 0) {
+        if ($query->execute()) {
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function selectAll()
@@ -93,8 +91,34 @@ class DaoFactory implements MyDaoInterface
 
     }
 
-    public function updateItem($id)
+    public function updateItem(array $item)
     {
+        $db = new Db();
+        $connection = $db->getConnection();
 
+        $id = $item['id'];
+        unset($item['id']);
+        $valuesAr = array();
+        $string = "";
+
+        for ($i = 0; $i < count($item); $i++) {
+            $valuesAr[] = ':' . key($item);
+            $string = $string . key($item) . ' = :' . key($item) . ', ';
+            next($item);
+        }
+
+        $string = mb_substr($string, 0, -2);
+        $sql = "UPDATE {$this->essence} SET {$string} WHERE id = :id";
+        $query = $connection->prepare($sql);
+        $query->bindParam(':id', $id);
+        $i = 0;
+        foreach ($item as $key => $value) {
+            $query->bindParam($valuesAr[$i], $item[$key]);
+            $i++;
+        }
+        if ($query->execute()) {
+            return true;
+        }
+        return false;
     }
 }

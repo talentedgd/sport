@@ -94,9 +94,42 @@ class CompetitionController
 
     public function actionCityLocations()
     {
-        $id = (int) strip_tags(trim($_POST['id']));
+        $id = (int)strip_tags(trim($_POST['id']));
         $location = new Location();
         $locationList = $location->getLocationByCityId($id);
         echo $locationList;
+    }
+
+    public function actionUpdateCompetition()
+    {
+        $competition = array();
+        $competition['id'] = (int)strip_tags(trim($_POST['id']));
+        $competition['name'] = strip_tags(trim($_POST['name']));
+        $competition['date'] = strip_tags(trim($_POST['date']));
+        $competition['time'] = strip_tags(trim($_POST['time']));
+        $competition['description'] = strip_tags(trim($_POST['competitionDescription']));
+        $competition['sport_id'] = (int)strip_tags(trim($_POST['kindOfSport']));
+        $competition['location_id'] = (int)strip_tags(trim($_POST['competitionLocations']));
+
+        $id = $competition['id'];
+
+        $c = new SportCompetition();
+        if ($c->updateItem($competition)) {
+            $_SESSION['updateSuccess'] = 'Соревнование успешно изменено';
+        } else {
+            $_SESSION['updateError'] = 'Ошибка обновления';
+        }
+        header("Location: http://sport/admin/competition/{$id}");
+    }
+
+    public function actionDeleteCompetition($id)
+    {
+        $competition = new SportCompetition();
+        if ($competition->deleteItem($id)) {
+            $_SESSION['deleteSuccess'] = 'Соревнование удалено';
+        } else {
+            $_SESSION['deleteError'] = 'Ошибка удаления';
+        }
+        header('Location: http://sport/admin');
     }
 }

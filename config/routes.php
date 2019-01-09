@@ -6,9 +6,12 @@ return array(
 
     'city-locations' => 'competition/cityLocations',
 
+    'update-competition' => 'competition/updateCompetition',
+
     'add-city' => 'competition/addCity',
     'add-sport' => 'competition/addKindOfSport',
     'add-location' => 'competition/addLocation',
+    'admin/competition-delete/([0-9]+)' => 'competition/deleteCompetition/$1',
 
     'admin/competition/([0-9]+)' => 'competition/aboutCompetition/$1',
     'admin' => 'competition/index',

@@ -6,5 +6,5 @@ interface MyDaoInterface
     public function selectAll();
     public function selectOne($id);
     public function insertItem(array $item);
-    public function updateItem($id);
+    public function updateItem(array $item);
 }

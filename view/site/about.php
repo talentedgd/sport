@@ -7,7 +7,7 @@
                 <h5 class="card-subtitle mb-2 text-muted"><?= $competition['date']; ?></h5>
                 <h5 class="card-subtitle mb-2 text-muted"><?= $competition['time']; ?></h5>
                 <a href="<?= "/sport/{$kindOfSport['id']}"; ?>"
-                   class="card-link"><?= $kindOfSport['name']; ?></a>
+                   class="btn btn-outline-primary" role="button"><?= $kindOfSport['name']; ?></a>
                 <p class="card-text"><?= $competition['description']; ?></p>
                 <hr>
                 <h5 class="card-title">Место проведения</h5>

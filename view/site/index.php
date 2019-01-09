@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h4 class="card-title"><?= $competition['name']; ?></h4>
                 <h5 class="card-subtitle mb-2 text-muted"><?= $competition['date']; ?></h5>
-                <a href="<?= "/competition/{$competition['id']}"; ?>" class="card-link">Подробнее</a>
+                <a class="btn btn-outline-primary" role="button" href="<?= "/competition/{$competition['id']}"; ?>">Подробнее</a>
             </div>
         </div>
     </div>
