@@ -1,4 +1,25 @@
 <?php require_once ROOT . '\view\layouts\header.php'; ?>
+
+    <div class="row justify-content-center mt-2 mr-0">
+        <div class="card" style="width: 90%; background-color: ghostwhite">
+            <div class="card-body" style="text-align: center">
+                <h4 class="mb-3">Выбор СУБД</h4>
+                <div class="row justify-content-center">
+                    <div class="col custom-control custom-radio">
+                        <input id="mysql" name="database" type="radio" class="custom-control-input" checked=""
+                               required="">
+                        <label class="custom-control-label" for="mysql">MySQL</label>
+                    </div>
+                    <div class="col custom-control custom-radio">
+                        <input id="mongodb" name="database" type="radio" class="custom-control-input"
+                               required="">
+                        <label class="custom-control-label" for="mongodb">MongoDB</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row justify-content-center mt-2 mr-0">
         <div class="card" style="width: 90%; background-color: ghostwhite">
             <div class="card-body" style="text-align: center">
@@ -63,8 +84,10 @@
             <div class="card-body">
                 <h4 class="card-title"><?= $competition['name']; ?></h4>
                 <h5 class="card-subtitle mb-2 text-muted"><?= $competition['date']; ?></h5>
-                <a class="btn btn-outline-primary" role="button" href="<?= "/admin/competition/{$competition['id']}"; ?>">Редактировать</a>
-                <a class="btn btn-outline-danger" role="button" href="<?= "/admin/competition-delete/{$competition['id']}"; ?>">Удалить</a>
+                <a class="btn btn-outline-primary" role="button"
+                   href="<?= "/admin/competition/{$competition['id']}"; ?>">Редактировать</a>
+                <a class="btn btn-outline-danger" role="button"
+                   href="<?= "/admin/competition-delete/{$competition['id']}"; ?>">Удалить</a>
             </div>
         </div>
     </div>

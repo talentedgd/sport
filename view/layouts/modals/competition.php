@@ -10,39 +10,36 @@
                 </button>
             </div>
             <form method="post" action="/add-competition">
+
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="competitionName">Название спортивного соревнования</label>
-                        <input name="competitionName" type="text" class="form-control" id="competitionName"
-                               aria-describedby="emailHelp"
+                        <input name="name" type="text" class="form-control"
                                placeholder="Введите название спортивного соревнования...">
                     </div>
 
                     <!-- date -->
                     <div class="form-group">
                         <label for="date">Дата</label>
-                        <input type="date" class="form-control" id="date" aria-describedby="emailHelp"
-                               value="<?= $competition['date']; ?>">
+                        <input name="date" type="date" class="form-control" id="date">
                     </div>
 
                     <!-- time -->
                     <div class="form-group">
                         <label for="time">Время</label>
-                        <input type="time" class="form-control" id="time" aria-describedby="emailHelp"
-                               value="<?= $competition['time']; ?>">
+                        <input name="time" type="time" class="form-control" id="time"">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Описание</label>
-                        <textarea placeholder="Введите описание..." name="sportDescription" class="form-control"
-                                  id="exampleFormControlTextarea1"
+                        <textarea placeholder="Введите описание..." name="description" class="form-control"
                                   rows="3"></textarea>
                     </div>
 
                     <!-- select sport -->
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Вид спорта</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select name="sport" class="form-control">
                             <?php foreach ($kindsOfSport as $kindOfSport): ?>
                                 <option value="<?= $kindOfSport['id']; ?>"><?= $kindOfSport['name']; ?></option>
                             <?php endforeach; ?>
@@ -55,16 +52,16 @@
                     <!-- select cities -->
                     <div class="form-group">
                         <label for="competitionCities">Город</label>
-                        <select name="competitionCities" class="form-control" id="competitionCities">
+                        <select class="form-control" id="competitionCities">
                             <?php foreach ($cities as $city): ?>
                                 <option value="<?= $city['id']; ?>"><?= $city['name']; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="competitionLocations">Город</label>
-                        <select name="competitionLocations" class="form-control" id="competitionLocations">
-                                <option value="1">shit</option>
+                        <label for="competitionLocations">Местоположение</label>
+                        <select name="location" class="form-control" id="competitionLocations">
+                            <option value="1">-</option>
                         </select>
                     </div>
 

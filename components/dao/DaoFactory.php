@@ -10,7 +10,7 @@ class DaoFactory implements MyDaoInterface
     {
         $db = new Db();
         $connection = $db->getConnection();
-        $query = $connection->prepare("DELETE FROM {$this->essence} WHERE id = :id LIMIT 1");
+        $query = $connection->prepare("DELETE FROM {$this->essence} WHERE id = :id");
 
         if (!$query) {
             echo 'Что-то не так!';

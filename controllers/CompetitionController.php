@@ -132,4 +132,22 @@ class CompetitionController
         }
         header('Location: http://sport/admin');
     }
+
+    public  function  actionAddCompetition(){
+        $params = array();
+        $params['name'] = strip_tags(trim($_POST['name']));
+        $params['date'] = strip_tags(trim($_POST['date']));
+        $params['time'] = strip_tags(trim($_POST['time']));
+        $params['description'] = strip_tags(trim($_POST['description']));
+        $params['sport_id'] = strip_tags(trim($_POST['sport']));
+        $params['location_id'] = strip_tags(trim($_POST['location']));
+
+        $competition = new SportCompetition();
+        if ($competition->insertItem($params)) {
+            $_SESSION['essenceSuccess'] = 'Соревнование успешно добавлено';
+        } else {
+            $_SESSION['essenceError'] = 'Ошибка добавления';
+        }
+        header('Location: http://sport/admin');
+    }
 }

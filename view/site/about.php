@@ -1,5 +1,5 @@
 <?php require_once ROOT . '\view\layouts\header.php'; ?>
-
+<?php if (isset($competition)): ?>
     <div class="row justify-content-center mt-2 mr-0">
         <div class="card" style="width: 90%; background-color: ghostwhite">
             <div class="card-body">
@@ -14,9 +14,11 @@
                 <p class="card-text"><strong>Название:</strong> <?= $location['name']; ?></p>
                 <p class="card-text"><strong>Город:</strong> <?= $city['name']; ?></p>
                 <p class="card-text"><strong>Адрес:</strong> <?= $location['address']; ?></p>
-                <p class="card-text"><strong>Описание:</strong> <?= $location['description']; ?></p>
+                <?php if ($location['description']): ?>
+                    <p class="card-text"><strong>Описание:</strong> <?= $location['description']; ?></p>
+                <?php endif; ?>
             </div>
         </div>
     </div>
-
+<?php endif; ?>
 <?php require_once ROOT . '\view\layouts\footer.php';

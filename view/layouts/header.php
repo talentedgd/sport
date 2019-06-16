@@ -23,6 +23,11 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <?php if (isset($_SESSION['admin_id'])): ?>
+                    <a class="nav-link" href="/admin">Меню</a>
+                <?php endif; ?>
+            </li>
+            <li class="nav-item">
+                <?php if (isset($_SESSION['admin_id'])): ?>
                     <a class="nav-link" href="/logout">Выход</a>
                 <?php endif; ?>
             </li>
