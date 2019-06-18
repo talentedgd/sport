@@ -1,6 +1,6 @@
 <?php
 
-require_once ROOT . '\models\SportCompetition.php';
+require_once ROOT . '\components\dao\SportCompetitionFactory.php';
 require_once ROOT . '\models\Location.php';
 require_once ROOT . '\models\KindOfSport.php';
 require_once ROOT . '\models\City.php';
@@ -9,14 +9,16 @@ class SiteController
 {
     public function actionIndex()
     {
-        $sc = new SportCompetition();
+        $scFactory = new SportCompetitionFactory();
+        $sc = $scFactory->createEssence();
         $competitions = $sc->selectAll();
         require_once ROOT . '\view\site\index.php';
     }
 
     public function actionAboutCompetition($id)
     {
-        $sc = new SportCompetition();
+        $scFactory = new SportCompetitionFactory();
+        $sc = $scFactory->createEssence();
         $competition = $sc->selectOne($id);
 
         $l = new Location();

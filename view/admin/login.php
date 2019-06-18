@@ -1,6 +1,6 @@
 <?php require_once ROOT . '\view\layouts\header.php'; ?>
 
-    <div class="row justify-content-center mt-2" style="background-color: ghostwhite;">
+    <div class="row justify-content-center mt-2">
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-8">
@@ -17,8 +17,7 @@
                         <h3 class="text-center mb-4">Выполните вход</h3>
                         <form method="post" action="/login">
                             <div class="form-group">
-                                <input name="username" type="text" class="form-control"
-                                       aria-describedby="emailHelp" placeholder="Username...">
+                                <input name="username" type="text" class="form-control" placeholder="Username...">
                             </div>
                             <div class="form-group">
                                 <input name="password" type="password" class="form-control"
