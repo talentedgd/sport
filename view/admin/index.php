@@ -76,6 +76,7 @@
         </div>
     </div>
 
+    <hr>
 
 <?php foreach ($competitions as $competition): ?>
 

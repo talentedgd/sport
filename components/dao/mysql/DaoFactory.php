@@ -8,7 +8,7 @@ class DaoFactory implements MyDaoInterface
 
     public function deleteItem($id)
     {
-        $db = new Db();
+        $db = Db::getInstance();
         $connection = $db->getConnection();
         $query = $connection->prepare("DELETE FROM {$this->essence} WHERE id = :id");
 
@@ -27,7 +27,7 @@ class DaoFactory implements MyDaoInterface
 
     public function selectAll()
     {
-        $db = new Db();
+        $db = Db::getInstance();
         $connection = $db->getConnection();
         $query = $connection->query("SELECT * FROM {$this->essence}");
 
@@ -44,7 +44,7 @@ class DaoFactory implements MyDaoInterface
 
     public function selectOne($id)
     {
-        $db = new Db();
+        $db = Db::getInstance();
         $connection = $db->getConnection();
         $query = $connection->query("SELECT * FROM {$this->essence} WHERE id = $id LIMIT 1");
 
@@ -61,7 +61,7 @@ class DaoFactory implements MyDaoInterface
 
     public function insertItem(array $item)
     {
-        $db = new Db();
+        $db = Db::getInstance();
         $connection = $db->getConnection();
 
         $fieldsAr = array();
@@ -93,7 +93,7 @@ class DaoFactory implements MyDaoInterface
 
     public function updateItem(array $item)
     {
-        $db = new Db();
+        $db = Db::getInstance();
         $connection = $db->getConnection();
 
         $id = $item['id'];

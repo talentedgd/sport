@@ -19,18 +19,16 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <?php if (isset($_SESSION['admin_id'])): ?>
+    <?php if (isset($_SESSION['admin_id'])): ?>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
                     <a class="nav-link" href="/admin">Меню</a>
-                <?php endif; ?>
-            </li>
-            <li class="nav-item">
-                <?php if (isset($_SESSION['admin_id'])): ?>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/logout">Выход</a>
-                <?php endif; ?>
-            </li>
-        </ul>
-    </div>
+                </li>
+            </ul>
+        </div>
+    <?php endif; ?>
 </nav>
