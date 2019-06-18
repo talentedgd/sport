@@ -4,18 +4,23 @@
         <div class="card" style="width: 90%; background-color: ghostwhite">
             <div class="card-body" style="text-align: center">
                 <h4 class="mb-3">Выбор СУБД</h4>
-                <div class="row justify-content-center">
-                    <div class="col custom-control custom-radio">
-                        <input id="mysql" name="database" type="radio" class="custom-control-input" checked=""
-                               required="">
-                        <label class="custom-control-label" for="mysql">MySQL</label>
+                <form action="/change-db" method="post">
+                    <div class="row justify-content-center">
+                        <div class="col custom-control custom-radio">
+                            <input id="mysql" value="1" name="database" type="radio"
+                                   class="custom-control-input" <?= ($_SESSION['db']) ? 'checked' : ''; ?>>
+                            <label class="custom-control-label" for="mysql">MySQL</label>
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-outline-primary">Применить</button>
+                        </div>
+                        <div class="col custom-control custom-radio">
+                            <input id="mongodb" value="0" name="database" type="radio"
+                                   class="custom-control-input" <?= (!$_SESSION['db']) ? 'checked' : ''; ?>>
+                            <label class="custom-control-label" for="mongodb">MongoDB</label>
+                        </div>
                     </div>
-                    <div class="col custom-control custom-radio">
-                        <input id="mongodb" name="database" type="radio" class="custom-control-input"
-                               required="">
-                        <label class="custom-control-label" for="mongodb">MongoDB</label>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

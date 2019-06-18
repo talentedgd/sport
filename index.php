@@ -7,10 +7,15 @@ error_reporting(E_ALL);
 /* Константа с путем к корню файла */
 define('ROOT', dirname(__FILE__));
 
-$dbType = 'mysql';
-
+$dbType = '';
 session_start();
-if(!isset($_SESSION['db'])) $_SESSION['db'] = 1;
+if (!isset($_SESSION['db'])) {
+    $_SESSION['db'] = 1;
+    $dbType = 'mysql';
+}else{
+    if($_SESSION['db']) $dbType = 'mysql';
+    else $dbType = 'mongodb';
+}
 
 /* Подклчение файлов маршрутизатора и бд*/
 require_once(ROOT . "/vendor/autoload.php");

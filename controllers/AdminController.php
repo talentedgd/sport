@@ -29,4 +29,12 @@ class AdminController
         // Redirect
         header('Location: http://sport/');
     }
+
+    public function actionChangeDb(){
+        if (isset($_SESSION['admin_id'])){
+            $dbType = $_POST['database'];
+            $_SESSION['db'] = $dbType;
+        }
+        header('Location: http://sport/admin');
+    }
 }

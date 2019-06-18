@@ -12,6 +12,7 @@ return array(
     'add-sport' => 'competition/addKindOfSport',
     'add-location' => 'competition/addLocation',
     'add-competition' => 'competition/addCompetition',
+    'change-db' => 'admin/changeDb',
     'admin/competition-delete/([0-9]+)' => 'competition/deleteCompetition/$1',
 
     'admin/competition/([0-9]+)' => 'competition/aboutCompetition/$1',

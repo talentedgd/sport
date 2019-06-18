@@ -7,7 +7,12 @@ class DaoFactory implements MyDaoInterface
 
     public function deleteItem($id)
     {
-        // TODO: Implement deleteItem() method.
+        $collectionName = $this->essence;
+
+        $db = Db::getInstance();
+        $connection = $db->getConnection();
+        if ($connection->$collectionName->remove(['_id' => $id])) return true;
+        return false;
     }
 
     public function selectAll()
@@ -22,16 +27,31 @@ class DaoFactory implements MyDaoInterface
 
     public function selectOne($id)
     {
-        // TODO: Implement selectOne() method.
+        $collectionName = $this->essence;
+
+        $db = Db::getInstance();
+        $connection = $db->getConnection();
+        $result = $connection->$collectionName->findOne(['_id' => $id]);
+        return $result;
     }
 
     public function insertItem(array $item)
     {
-        // TODO: Implement insertItem() method.
+        $collectionName = $this->essence;
+
+        $db = Db::getInstance();
+        $connection = $db->getConnection();
+        if ($connection->$collectionName->insertOne($item)) return true;
+        return false;
     }
 
     public function updateItem(array $item)
     {
-        // TODO: Implement updateItem() method.
+        $collectionName = $this->essence;
+
+        $db = Db::getInstance();
+        $connection = $db->getConnection();
+        if ($connection->$collectionName->updateOne(['_id' => $item['id']], ['$set' => $item])) return true;
+        return false;
     }
 }
