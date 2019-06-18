@@ -31,14 +31,17 @@ class CompetitionController
             $sc = new SportCompetition();
             $competition = $sc->selectOne($id);
 
-            $l = new Location();
-            $location = $l->selectOne($competition['location_id']);
-
             $s = new KindOfSport();
             $kindsOfSport = $s->selectAll();
 
+            $l = new Location();
+            $currentLocation = $l->selectOne($competition['location_id']);
+
             $c = new City();
             $cities = $c->selectAll();
+            $currentCity = $c->selectOne($currentLocation['city_id']);
+
+            $currentCityLocations = $cityLocations = $l->getLocationByCityId($currentCity['id']);
 
             require_once ROOT . '\view\admin\about.php';
         } else {
@@ -96,7 +99,7 @@ class CompetitionController
     {
         $id = (int)strip_tags(trim($_POST['id']));
         $location = new Location();
-        $locationList = $location->getLocationByCityId($id);
+        $locationList = json_encode($location->getLocationByCityId($id));
         echo $locationList;
     }
 
@@ -133,7 +136,8 @@ class CompetitionController
         header('Location: http://sport/admin');
     }
 
-    public  function  actionAddCompetition(){
+    public function actionAddCompetition()
+    {
         $params = array();
         $params['name'] = strip_tags(trim($_POST['name']));
         $params['date'] = strip_tags(trim($_POST['date']));

@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label for="name">Название</label>
                         <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                               value="<?= $competition['name']; ?>">
+                               value="<?= ucfirst($competition['name']); ?>">
                     </div>
                     <div class="row">
                         <div class="col">
@@ -51,7 +51,7 @@
                                 <label for="kindOfSport">Вид спорта</label>
                                 <select name="kindOfSport" class="form-control" id="kindOfSport">
                                     <?php foreach ($kindsOfSport as $kindOfSport): ?>
-                                        <option value="<?= $kindOfSport['id']; ?>"><?= $kindOfSport['name']; ?></option>
+                                        <option value="<?= $kindOfSport['id']; ?>"><?= ucfirst($kindOfSport['name']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -60,9 +60,7 @@
                     <div class="form-group">
                         <label for="competitionDescription">Описание</label>
                         <textarea name="competitionDescription" class="form-control" id="competitionDescription"
-                                  rows="3">
-                        <?= $competition['description']; ?>
-                    </textarea>
+                                  rows="3"><?= ucfirst($competition['description']); ?></textarea>
                     </div>
                     <hr>
                     <h5 class="card-title">Место проведения</h5>
@@ -72,7 +70,8 @@
                             <div class="col">
                                 <select class="form-control" id="competitionCities">
                                     <?php foreach ($cities as $city): ?>
-                                        <option value="<?= $city['id']; ?>"><?= $city['name']; ?></option>
+                                        <option <?= ($city['id'] == $currentCity['id']) ? 'selected' : ''; ?>
+                                                value="<?= $city['id']; ?>"><?= ucfirst($city['name']); ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -92,7 +91,10 @@
                         <div class="row">
                             <div class="col">
                                 <select name="competitionLocations" class="form-control" id="competitionLocations">
-                                    <option value="1">...</option>
+                                    <?php foreach ($currentCityLocations as $currentCityLocation): ?>
+                                        <option <?= ($currentCityLocation['id'] == $currentLocation['id']) ? 'selected' : ''; ?>
+                                                value="<?= $currentCityLocation['id']; ?>"><?= ucfirst($currentCityLocation['name']); ?></option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                             <div class="col">

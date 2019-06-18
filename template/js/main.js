@@ -8,10 +8,15 @@ $('#competitionCities').on('change', function (e) {
     function onAjaxSuccess(data) {
         $('#competitionLocations').find('option').remove();
         var result = JSON.parse(data);
-        for(var i=0; i<result.length; i++) {
+        for (var i = 0; i < result.length; i++) {
             var o = new Option(result[i][1], result[i][0]);
-            $(o).html(result[i][1]);
+            $(o).html(capitalizeFirstLetter(result[i][1]));
             $("#competitionLocations").append(o);
         }
     }
 });
+
+/* Uppercase first letter of string */
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}

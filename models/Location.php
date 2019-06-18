@@ -12,7 +12,7 @@ class Location extends DaoFactory
         $query->bindParam(':id', $id);
         $query->execute();
         if ($result = $query->fetchAll()) {
-            return json_encode($result);
+            return $result;
         }
         return false;
     }
